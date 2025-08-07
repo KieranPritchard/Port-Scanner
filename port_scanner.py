@@ -1,18 +1,21 @@
 import socket
 
 def scan_all_ports(target):
-    ports = range(1, 65535)
+    ports = range(1, 1025)
 
     print(f"Scanning {target}")
     for port in ports:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.timeout(0.5)
-        result = sock.connect_ex((target, port))
-        if result == 0:
-            print(f"Port {port} is OPEN")
-        else:
-            print(f"Port {port} is CLOSED")
-        sock.close()
+        sock.settimeout(0.5)
+        try:
+            result = sock.connect_ex((target, port))
+            if result == 0:
+                print(f"Port {port} is OPEN")
+            else:
+                print(f"Port {port} is CLOSED")
+            sock.close()
+        except Exception as e:
+            print(f"Error encountered: {e}")
 
 def scan_most_used(target):
     port_list = [20, 21, 22, 23, 25, 53, 80, 110, 119, 123, 143, 161, 194, 443]
@@ -20,13 +23,16 @@ def scan_most_used(target):
     print(f"Scanning {target}")
     for port in port_list:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.timeout(0.5)
-        result = sock.connect_ex((target, port))
-        if result == 0:
-            print(f"Port {port} is OPEN")
-        else:
-            print(f"Port {port} is CLOSED")
-        sock.close()
+        sock.settimeout(0.5)
+        try:
+            result = sock.connect_ex((target, port))
+            if result == 0:
+                print(f"Port {port} is OPEN")
+            else:
+                print(f"Port {port} is CLOSED")
+            sock.close()
+        except Exception as e:
+            print(f"Error encountered: {e}")
 
 def main():
     #banner for start up of program
