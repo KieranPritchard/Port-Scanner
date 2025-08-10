@@ -20,19 +20,58 @@
 
 ### Objective
 
+This is a simple Python-based port scanner built with the socket module.
+It was created as a portfolio project to demonstrate working with sockets in Python and to learn more about network programming fundamentals.
 
 ### Technology and Tools Used
 
 * **Language:** Python.
-* **Framework/Library:** "random".
-* **Tools:** git, VS Code.
+* **Framework/Library:** Sockets.
+* **Tools:** git, VS Code, ChatGPT (For the idea and debugging help).
 
 ### Challenges Faced
 
+* Timeout causing an error, this was because i put in `timeout(0.5)` instead of `settimeout(0.5)`
+
 ### Outcome
+
+Built a Python socket-based port scanner capable of scanning both the most commonly used network ports and all ports in a specified range, providing real-time results on port status.
 
 ## How to Use the Project
 
+### 1. Install Python
+
+* Make sure Python 3 is installed. Check with:
+
+```
+python --version
+```
+
+### 2. Download the script
+
+* Save the code as port_scanner.py (or clone the repository).
+
+### 3. Run the script
+* In your terminal, navigate to the script’s folder and run:
+
+```
+python3 port_scanner.py
+```
+
+### 4. Choose an option
+
+* When prompted:
+    * Enter 1 to scan most commonly used ports.
+    * Enter 2 to scan all ports (1–1024).
+
+### 5. Enter target IP
+
+* Type the IP address of the target machine (e.g., 192.168.1.1).
+
+### 6. View results
+
+* The program will display which ports are OPEN or CLOSED.
+* Note: Scanning ports you don’t own or have permission to scan may be illegal. Always scan responsibly.
 
 ## Licenses
 License can be found in the root of the repository.
